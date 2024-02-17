@@ -29,7 +29,7 @@ public class NPC {
   
   private static final String PROFILE_TEXTURES = "textures";
   
-  private static final String START_PREFIX = "[ZNPC] ";
+  private static final String START_PREFIX = "[NPC] ";
   
   private final Set<ZUser> viewers = new HashSet<>();
   
@@ -77,7 +77,7 @@ public class NPC {
   public void onLoad() {
     if (NPC_MAP.containsKey(getNpcPojo().getId()))
       throw new IllegalStateException("npc with id " + getNpcPojo().getId() + " already exists."); 
-    this.gameProfile = new GameProfile(UUID.randomUUID(), "[ZNPC] " + this.npcName);
+    this.gameProfile = new GameProfile(UUID.randomUUID(), "[NPC] " + this.npcName);
     this.gameProfile.getProperties().put("textures", new Property("textures", this.npcPojo.getSkin(), this.npcPojo.getSignature()));
     changeType(this.npcPojo.getNpcType());
     updateProfile(this.gameProfile.getProperties());
